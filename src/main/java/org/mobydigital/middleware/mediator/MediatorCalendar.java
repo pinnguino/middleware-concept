@@ -18,6 +18,7 @@ public class MediatorCalendar implements Mediator {
     private Notificacion notificacion;
 
     public MediatorCalendar() {
+        // Obtenemos los datos de los eventos y tareas
         EventoGoogleService s1 = new EventoGoogleServiceImpl();
         TareaGoogleService s2 = new TareaGoogleServiceImpl();
         List<TareaGoogle> tareas = s2.listarTareasUsuario();
