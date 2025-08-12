@@ -19,6 +19,7 @@ public class TareaGoogle {
     }
 
     public void setMediador(MediatorCalendar mediador) {
+
         this.mediador = mediador;
     }
 
