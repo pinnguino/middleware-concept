@@ -2,19 +2,38 @@ package org.mobydigital.middleware.calendar;
 
 import org.mobydigital.middleware.mediator.MediatorCalendar;
 
+import java.time.LocalDateTime;
+
 public class EventoGoogle {
+    private long id;
     private MediatorCalendar mediador;
-  //  private long id;
-   // private Date fecha;
     private String titulo;
     private String descripcion;
-//    private String tipo;
+    private LocalDateTime fecha;
 
-    public EventoGoogle(String titulo, String descripcion) {
-        //this.mediador = mediador;
+    public EventoGoogle(long id, String titulo, String descripcion, LocalDateTime fecha) {
+        this.id = id;
         this.titulo = titulo;
         this.descripcion = descripcion;
+        this.fecha = fecha;
     }
+
+    public long getId() {
+        return id;
+    }
+
+    public void setId(long id) {
+        this.id = id;
+    }
+
+    public LocalDateTime getFecha() {
+        return fecha;
+    }
+
+    public void setFecha(LocalDateTime fecha) {
+        this.fecha = fecha;
+    }
+
     public MediatorCalendar getMediador() {
         return mediador;
     }
