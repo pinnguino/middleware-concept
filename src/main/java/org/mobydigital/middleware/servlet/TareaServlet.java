@@ -5,20 +5,15 @@ import jakarta.servlet.annotation.WebServlet;
 import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
-import org.mobydigital.middleware.calendar.EventoGoogle;
 import org.mobydigital.middleware.calendar.TareaGoogle;
 import org.mobydigital.middleware.mediator.MediatorCalendar;
-import org.mobydigital.middleware.service.EventoGoogleService;
-import org.mobydigital.middleware.service.EventoGoogleServiceImpl;
-import org.mobydigital.middleware.service.TareaGoogleService;
-import org.mobydigital.middleware.service.TareaGoogleServiceImpl;
 
 import java.io.IOException;
 import java.io.PrintWriter;
 import java.util.List;
 
-@WebServlet("/calendar")
-public class CalendarServlet extends HttpServlet {
+@WebServlet("/tareas")
+public class TareaServlet extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         resp.setContentType("text/html;encoding=UTF-8");
@@ -34,7 +29,7 @@ public class CalendarServlet extends HttpServlet {
         out.println("        <title>Calendario Usuario</title>");
         out.println("    </head>");
         out.println("    <body>");
-        out.println("        <h1>Eventos</h1>");
+        out.println("        <h1>Tarea</h1>");
         if(sinHacer.isEmpty()) {
             out.println("         <h3>No tienes tareas pendientes.</h3>");
         }
@@ -42,7 +37,11 @@ public class CalendarServlet extends HttpServlet {
             // Agregar notificacion tareas repetidas
             out.println("<h3>Tienes tareas pendientes:</h3>");
             for(TareaGoogle t : sinHacer) {
-                out.println("<h4> - " + t.getMediador().notify(t, "notificarEvento") + "</h4>");
+                try{
+                    out.println("<h4> - " + t.getMediador().notify(t, "notificarEvento") + "</h4>");
+                }catch (IllegalAccessException evento){
+                    evento.printStackTrace();
+                }
             }
         }
         out.println("     </body>");
