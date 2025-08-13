@@ -5,6 +5,7 @@ import jakarta.servlet.annotation.WebServlet;
 import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
+import org.mobydigital.middleware.calendar.EventoGoogle;
 import org.mobydigital.middleware.calendar.TareaGoogle;
 import org.mobydigital.middleware.mediator.MediatorCalendar;
 
@@ -21,7 +22,7 @@ public class EventoServlet extends HttpServlet {
 
         MediatorCalendar m = new MediatorCalendar();
 
-        List<TareaGoogle> sinHacer = m.listarSinHacer();
+        List<EventoGoogle> sinHacer = m.listarEventoSinHacer();
 
         out.println("<!DOCTYPE html>");
         out.println("    <head>");
@@ -31,15 +32,15 @@ public class EventoServlet extends HttpServlet {
         out.println("    <body>");
         out.println("        <h1>Eventos</h1>");
         if(sinHacer.isEmpty()) {
-            out.println("         <h3>No tienes tareas pendientes.</h3>");
+            out.println("         <h3>No tienes eventos pendientes.</h3>");
         }
         else {
             // Agregar notificacion tareas repetidas
-            out.println("<h3>Tienes tareas pendientes:</h3>");
-            for(TareaGoogle t : sinHacer) {
+            out.println("<h3>Tienes eventos pendientes:</h3>");
+            for(EventoGoogle e : sinHacer) {
                 try{
-                    t.getMediador().notify(t, "notificarEvento");
-                    out.println("<h4> - " + t.getMediador().getNotificacion().notificarTexto() + "</h4>");
+                    e.getMediador().notify(e, "notificarEvento");
+                    out.println("<h4> - " + e.getMediador().getNotificacion().notificarTexto() + "</h4>");
                 }catch (IllegalAccessException evento){
                     evento.printStackTrace();
                 }

@@ -8,6 +8,7 @@ import org.mobydigital.middleware.service.EventoGoogleServiceImpl;
 import org.mobydigital.middleware.service.TareaGoogleService;
 import org.mobydigital.middleware.service.TareaGoogleServiceImpl;
 
+import java.time.LocalDateTime;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -51,14 +52,24 @@ public class MediatorCalendar implements Mediator {
     }
 
     public void NotificarEvento(EventoGoogle evento){
-        Notificacion notificacion = new Notificacion(evento.getTitulo(), evento.getFecha(), evento.getDescripcion(), false);
+        this.setNotificacion(new Notificacion(evento.getTitulo(), evento.getFecha(), evento.getDescripcion(), false));
     }
 
     public void NotificarTarea(TareaGoogle tarea){
         this.setNotificacion(new Notificacion(tarea.getTitulo(), tarea.getFecha(), tarea.getDescripcion(), tarea.isEstado()));
     }
 
-    public List<TareaGoogle> listarSinHacer() {
+    public List<EventoGoogle> listarEventoSinHacer(){
+        List<EventoGoogle> sinHacer = new ArrayList<>();
+        for(EventoGoogle e: eventos){
+            if(e.getFecha().isAfter(LocalDateTime.now())){
+                sinHacer.add(e);
+            }
+        }
+        return sinHacer;
+    }
+
+    public List<TareaGoogle> listarTareaSinHacer() {
         List<TareaGoogle> sinHacer = new ArrayList<>();
         for(TareaGoogle t : tareas) {
             if (!t.isEstado()){

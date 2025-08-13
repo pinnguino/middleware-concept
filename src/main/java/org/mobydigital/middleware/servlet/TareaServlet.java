@@ -21,7 +21,7 @@ public class TareaServlet extends HttpServlet {
 
         MediatorCalendar m = new MediatorCalendar();
 
-        List<TareaGoogle> sinHacer = m.listarSinHacer();
+        List<TareaGoogle> sinHacer = m.listarTareaSinHacer();
 
         out.println("<!DOCTYPE html>");
         out.println("    <head>");
@@ -40,6 +40,7 @@ public class TareaServlet extends HttpServlet {
                 try{
                     t.getMediador().notify(t, "notificarEvento");
                     out.println("<h4> - " + t.getMediador().getNotificacion().notificarTexto() + "</h4>");
+                    out.println();
                 }catch (IllegalAccessException evento){
                     evento.printStackTrace();
                 }
