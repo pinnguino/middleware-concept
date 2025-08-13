@@ -20,7 +20,7 @@ public class Notificacion {
     }
 
     public String notificarTexto(){
-       return "*" + getTitulo() + "|" + getDescripcion() + "|" + getFecha();
+       return "*" + getTitulo() + " | " + getDescripcion() + " | " + getFecha();
     }
 
     public long getId() {
@@ -44,7 +44,7 @@ public class Notificacion {
     }
 
     public void setTitulo(String titulo) {
-        this.titulo = titulo;
+            this.titulo = titulo;
     }
 
     public LocalDateTime getFecha() {

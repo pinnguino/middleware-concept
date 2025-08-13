@@ -34,28 +34,27 @@ public class MediatorCalendar implements Mediator {
     }
 
     @Override
-    public String notify(Object sender, String event) throws IllegalAccessException {
+    public void notify(Object sender, String event) throws IllegalAccessException {
         // Conexion entre tarea y notificacion (notificar de una tarea)
         if((event.equals("notificarEvento"))) {
-            if(sender instanceof TareaGoogle){
+            if (sender instanceof TareaGoogle) {
                 TareaGoogle tarea = (TareaGoogle) sender;
-                return NotificarTarea(tarea);
-            }else if(sender instanceof EventoGoogle){
+                NotificarTarea(tarea);
+            } else if (sender instanceof EventoGoogle) {
                 EventoGoogle evento = (EventoGoogle) sender;
-                return NotificarEvento(evento);
+                NotificarEvento(evento);
+            } else {
+                throw new IllegalAccessException();
             }
         }
-        throw new IllegalAccessException();
     }
 
-    public String NotificarEvento(EventoGoogle evento){
+    public void NotificarEvento(EventoGoogle evento){
         Notificacion notificacion = new Notificacion(evento.getTitulo(), evento.getFecha(), evento.getDescripcion(), false);
-        return notificacion.notificarTexto();
     }
 
-    public String NotificarTarea(TareaGoogle tarea){
-        Notificacion notificacion = new Notificacion(tarea.getTitulo(), tarea.getFecha(), tarea.getDescripcion(), tarea.isEstado());
-        return notificacion.notificarTexto();
+    public void NotificarTarea(TareaGoogle tarea){
+        this.setNotificacion(new Notificacion(tarea.getTitulo(), tarea.getFecha(), tarea.getDescripcion(), tarea.isEstado()));
     }
 
     public List<TareaGoogle> listarSinHacer() {

@@ -38,7 +38,8 @@ public class EventoServlet extends HttpServlet {
             out.println("<h3>Tienes tareas pendientes:</h3>");
             for(TareaGoogle t : sinHacer) {
                 try{
-                    out.println("<h4> - " + t.getMediador().notify(t, "notificarEvento") + "</h4>");
+                    t.getMediador().notify(t, "notificarEvento");
+                    out.println("<h4> - " + t.getMediador().getNotificacion().notificarTexto() + "</h4>");
                 }catch (IllegalAccessException evento){
                     evento.printStackTrace();
                 }
