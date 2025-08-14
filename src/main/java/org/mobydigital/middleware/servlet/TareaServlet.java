@@ -5,8 +5,8 @@ import jakarta.servlet.annotation.WebServlet;
 import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
-import org.mobydigital.middleware.calendar.TareaGoogle;
-import org.mobydigital.middleware.mediator.MediatorCalendar;
+import org.mobydigital.middleware.middlewareCalendar.calendar.TareaGoogle;
+import org.mobydigital.middleware.middlewareCalendar.mediator.MediatorCalendar;
 
 import java.io.IOException;
 import java.io.PrintWriter;
@@ -40,7 +40,6 @@ public class TareaServlet extends HttpServlet {
                 try{
                     t.getMediador().notify(t, "notificarEvento");
                     out.println("<h4> - " + t.getMediador().getNotificacion().notificarTexto() + "</h4>");
-                    out.println();
                 }catch (IllegalAccessException evento){
                     evento.printStackTrace();
                 }

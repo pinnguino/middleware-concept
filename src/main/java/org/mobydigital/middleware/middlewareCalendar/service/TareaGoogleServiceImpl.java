@@ -1,6 +1,6 @@
-package org.mobydigital.middleware.service;
+package org.mobydigital.middleware.middlewareCalendar.service;
 
-import org.mobydigital.middleware.calendar.TareaGoogle;
+import org.mobydigital.middleware.middlewareCalendar.calendar.TareaGoogle;
 
 import java.time.LocalDateTime;
 import java.util.Arrays;
