@@ -5,8 +5,8 @@ import jakarta.servlet.annotation.WebServlet;
 import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
-import org.mobydigital.middleware.middlewareCalendar.calendar.EventoGoogle;
-import org.mobydigital.middleware.middlewareCalendar.mediator.MediatorCalendar;
+import org.mobydigital.middleware.calendar.models.EventoGoogle;
+import org.mobydigital.middleware.calendar.mediator.MediatorCalendar;
 
 import java.io.IOException;
 import java.io.PrintWriter;

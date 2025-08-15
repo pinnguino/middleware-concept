@@ -1,6 +1,6 @@
-package org.mobydigital.middleware.middlewareCalendar.calendar;
+package org.mobydigital.middleware.calendar.models;
 
-import org.mobydigital.middleware.middlewareCalendar.mediator.MediatorCalendar;
+import org.mobydigital.middleware.calendar.mediator.MediatorCalendar;
 
 import java.time.LocalDateTime;
 

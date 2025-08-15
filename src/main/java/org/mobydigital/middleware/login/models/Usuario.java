@@ -1,6 +1,6 @@
-package org.mobydigital.middleware.middlewareLogin.User;
+package org.mobydigital.middleware.login.models;
 
-import org.mobydigital.middleware.middlewareLogin.mediator.MediatorLogin;
+import org.mobydigital.middleware.login.mediator.MediatorLogin;
 
 public class Usuario {
     private long id;

@@ -1,12 +1,12 @@
-package org.mobydigital.middleware.middlewareCalendar.mediator;
+package org.mobydigital.middleware.calendar.mediator;
 
-import org.mobydigital.middleware.middlewareCalendar.calendar.EventoGoogle;
-import org.mobydigital.middleware.middlewareCalendar.calendar.TareaGoogle;
-import org.mobydigital.middleware.middlewareCalendar.notificador.Notificacion;
-import org.mobydigital.middleware.middlewareCalendar.service.EventoGoogleService;
-import org.mobydigital.middleware.middlewareCalendar.service.EventoGoogleServiceImpl;
-import org.mobydigital.middleware.middlewareCalendar.service.TareaGoogleService;
-import org.mobydigital.middleware.middlewareCalendar.service.TareaGoogleServiceImpl;
+import org.mobydigital.middleware.calendar.models.EventoGoogle;
+import org.mobydigital.middleware.calendar.models.TareaGoogle;
+import org.mobydigital.middleware.calendar.notificador.Notificacion;
+import org.mobydigital.middleware.calendar.service.EventoGoogleService;
+import org.mobydigital.middleware.calendar.service.EventoGoogleServiceImpl;
+import org.mobydigital.middleware.calendar.service.TareaGoogleService;
+import org.mobydigital.middleware.calendar.service.TareaGoogleServiceImpl;
 
 import java.time.LocalDateTime;
 import java.util.ArrayList;
